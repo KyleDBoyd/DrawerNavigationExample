@@ -1,0 +1,1 @@
+Example Android News Application

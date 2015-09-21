@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">News App</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
+    <!-- Drawer Navigation Titles -->
+    <string name="title_drawer_home">Home</string>
+    <string name="title_drawer_favorites">Favorites</string>
+    <string name="title_drawer_settings">Settings</string>
 </resources>

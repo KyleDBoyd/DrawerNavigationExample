@@ -51,6 +51,9 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:support-v4:23.0.0'
+    compile 'com.android.support:recyclerview-v7:23.0.1'
     apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta1'
 }

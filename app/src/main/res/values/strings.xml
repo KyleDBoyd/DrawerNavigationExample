@@ -5,4 +5,13 @@
     <string name="title_drawer_home">Home</string>
     <string name="title_drawer_favorites">Favorites</string>
     <string name="title_drawer_settings">Settings</string>
+
+    <!-- Drawer Toggles -->
+    <string name="toggle_drawer_open">open</string>
+    <string name="toggle_drawer_closed">closed</string>
+
+    <!-- Fragment Names -->
+    <string name="fragment_home">Home Fragment</string>
+    <string name="fragment_favorite">Favorite Fragment</string>
+    <string name="fragment_settings">Settings Fragment</string>
 </resources>

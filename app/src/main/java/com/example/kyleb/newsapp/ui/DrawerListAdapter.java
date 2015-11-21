@@ -13,12 +13,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.kyleb.newsapp.R;
+import com.example.kyleb.newsapp.listeners.RecyclerViewClickListener;
 import com.example.kyleb.newsapp.models.DrawerItem;
 
 import java.util.ArrayList;
 
 /**
- * Created by kyleb on 2015-09-20.
+ * @author kyleb
+ * @version 1.0
+ * @date 2015-10-07
  */
 public class DrawerListAdapter extends RecyclerView.Adapter<DrawerListAdapter.ViewHolder> {
     /**
@@ -32,16 +35,33 @@ public class DrawerListAdapter extends RecyclerView.Adapter<DrawerListAdapter.Vi
     private Context context;
 
     /**
+     * Recycler view click listener
+     */
+    private static RecyclerViewClickListener clickListener;
+
+    /**
      * Drawer item viewholder
      */
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         public ImageView icon;
         public TextView title;
-        public TextView subtitle;
         public ViewHolder(View v) {
             super(v);
             icon = (ImageView) v.findViewById(R.id.item_drawer_icon);
             title = (TextView) v.findViewById(R.id.item_drawer_title);
+            itemView.setOnClickListener(this);
+        }
+
+        /**
+         * Call click listener
+         * @param v
+         */
+        @Override
+        public void onClick(View v) {
+            int position = this.getLayoutPosition();
+            if (position != RecyclerView.NO_POSITION) {
+                clickListener.recyclerViewListClicked(v, this.getLayoutPosition());
+            }
         }
     }
 
@@ -50,9 +70,11 @@ public class DrawerListAdapter extends RecyclerView.Adapter<DrawerListAdapter.Vi
      * @param drawerItems
      * @param context
      */
-    DrawerListAdapter(ArrayList<DrawerItem> drawerItems, Context context) {
+    DrawerListAdapter(ArrayList<DrawerItem> drawerItems, Context context,
+                      RecyclerViewClickListener clickListener) {
         this.drawerItems = drawerItems;
         this.context = context;
+        DrawerListAdapter.clickListener = clickListener;
     }
 
     @Override
